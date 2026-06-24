@@ -4,8 +4,7 @@ import httpStatus from "http-status";
 import { userService } from "./user.service";
 import { STATUS_CODES } from "http";
 import { catchAsync } from "../../utils/catchAsync";
-
- 
+import { sendResponse } from "../../utils/sendResponse";
 
 // const registerUser = async (req: Request, res: Response) => {
 //   try {
@@ -36,7 +35,16 @@ const registerUser = catchAsync(
     const payload = req.body;
     const user = await userService.registerUserIntoDb(payload);
 
-    res.status(httpStatus.CREATED).json({
+    // res.status(httpStatus.CREATED).json({
+    //   success: true,
+    //   statusCode: httpStatus.CREATED,
+    //   message: "User registered successfully",
+    //   data: {
+    //     user,
+    //   },
+    // });
+
+    sendResponse(res, {
       success: true,
       statusCode: httpStatus.CREATED,
       message: "User registered successfully",
