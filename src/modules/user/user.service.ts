@@ -49,7 +49,10 @@ const registerUserIntoDb = async (payload:registerUserPayload) => {
   });
   return user
 };
+const getMyProfileFromDB= async()=>{
 
+}
 export const userService={
     registerUserIntoDb
+    getMyProfileFromDB
 }
